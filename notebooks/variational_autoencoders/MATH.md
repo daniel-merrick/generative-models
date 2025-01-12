@@ -1,3 +1,45 @@
+
+## Overview
+One approach of generative modeling, termed "likelihood-based", is to learn a model to
+maximize the likelihood p(x) of all observed x.
+
+We can consider a VAE as something that models the joint distribution of x and z. 
+
+To maximize p(x) is intractible, so we maximize the Evidence Lower Bound (ELBO) of $p_\theta(x)$.
+
+## ELBO Derivation
+Starting with the log likelihood and using the fact that $\int q_\phi(z|x)dz = 1$:
+
+```math
+\log p_\theta(x) = \log p_\theta(x) \int q_\phi(z|x)dz
+```
+
+This is equal to the expectation:
+
+```math
+= \mathbb{E}_{q_\phi(z|x)}[\log p_\theta(x)]
+```
+
+We can rewrite using the conditional probability rule:
+
+```math
+= \mathbb{E}_{q_\phi(z|x)}\left[\log \frac{p_\theta(x,z)}{p_\theta(z|x)}\right]
+```
+
+Multiply and divide by the variational distribution:
+
+```math
+= \mathbb{E}_{q_\phi(z|x)}\left[\log \frac{p_\theta(x,z)}{p_\theta(z|x)} \cdot \frac{q_\phi(z|x)}{q_\phi(z|x)}\right]
+```
+
+Which gives us:
+
+```math
+= \mathbb{E}_{q_\phi(z|x)}\left[\log \frac{p_\theta(x,z)}{q_\phi(z|x)}\right] + D_{KL}(p_\theta(z|x) \Vert q_\phi(z|x))
+```
+
+This form shows how the log likelihood decomposes into the ELBO plus the KL divergence between the true posterior and the approximate posterior.
+
 ## Variational Autoencoder (VAE) and ELBO
 
 The ELBO provides a tractable lower bound on the log-likelihood of the data and is maximized during VAE training:
