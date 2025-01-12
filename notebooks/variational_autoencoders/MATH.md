@@ -42,12 +42,36 @@ Which gives us:
 
 This form shows how the log likelihood decomposes into the ELBO plus the KL divergence between the true posterior and the approximate posterior.
 
-## Variational Autoencoder (VAE) and ELBO
+## Deriving the VAE Objective from ELBO
 
-The ELBO provides a tractable lower bound on the log-likelihood of the data and is maximized during VAE training:
+Starting from our derived ELBO:
 
 ```math
-\text{ELBO}(\theta,\phi)=\mathbb{E}_{q_\phi(z|x)}[\log p_\theta(x|z)]-D_{KL}(q_\phi(z|x)\Vert p(z))
+\mathbb{E}_{q_\phi(z|x)}\left[\log \frac{p_\theta(x,z)}{q_\phi(z|x)}\right]
+```
+
+We can expand the joint distribution using the chain rule:
+
+```math
+\mathbb{E}_{q_\phi(z|x)}\left[\log \frac{p_\theta(x|z)p(z)}{q_\phi(z|x)}\right]
+```
+
+Using the properties of logarithms:
+
+```math
+\mathbb{E}_{q_\phi(z|x)}\left[\log p_\theta(x|z) + \log p(z) - \log q_\phi(z|x)\right]
+```
+
+We can separate this into two expectations:
+
+```math
+\mathbb{E}_{q_\phi(z|x)}[\log p_\theta(x|z)] + \mathbb{E}_{q_\phi(z|x)}[\log p(z) - \log q_\phi(z|x)]
+```
+
+The second term is the negative KL divergence:
+
+```math
+= \mathbb{E}_{q_\phi(z|x)}[\log p_\theta(x|z)] - D_{KL}(q_\phi(z|x)\Vert p(z))
 ```
 Where:
 - $q_\phi(z|x)$ is the encoder
