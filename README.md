@@ -1,6 +1,11 @@
 # Background
 
-Publishing my code that i'm writing to learn how to implement diffusion models. Some resources I'm following:
+Publishing the math / code I'm learning for generative model. Implementing very simple networks that demonstrate the core math behind the techniques. 
+
+- [VAE Notebooks](./notebooks/variational_autoencoders/)
+- [GAN Notebooks](./notebooks/generative_adversarial_networks/)
+
+Some resources I'm following:
 
 - [Tutorial on Diffusion Models for Imaging and Vision](https://arxiv.org/pdf/2403.18103)
 - [Probabilistic ML: Advanced Topics](https://probml.github.io/pml-book/book2.html)
