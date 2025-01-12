@@ -8,7 +8,7 @@ The ELBO provides a tractable lower bound on the log-likelihood of the data and 
 Where:
 - $q_\phi(z|x)$ is the encoder
 - $p_\theta(x|z)$ is the decoder
-- $p(z)$ is the prior distribution (usually $\mathcal{N}(0,I)$)
+- $p(z)$ is the prior distribution, a zero mean unit norm gaussian
 - $D_{KL}$ is the Kullback-Leibler divergence
 
 The ELBO consists of two terms:
