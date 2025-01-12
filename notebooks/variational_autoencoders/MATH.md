@@ -2,8 +2,9 @@
 
 The ELBO provides a tractable lower bound on the log-likelihood of the data and is maximized during VAE training:
 
-$\text{ELBO}(\theta, \phi) = \mathbb{E}_{q_\phi(z|x)} [\log p_\theta(x|z)] - D_{KL}(q_\phi(z|x) \Vert p(z))$
-
+```math
+\text{ELBO}(\theta,\phi)=\mathbb{E}_{q_\phi(z|x)}[\log p_\theta(x|z)]-D_{KL}(q_\phi(z|x)\Vert p(z))
+```
 Where:
 - $q_\phi(z|x)$ is the encoder
 - $p_\theta(x|z)$ is the decoder
@@ -30,8 +31,9 @@ Where:
 
 Therefore, minimizing the negative reconstruction term:
 
-$-\mathbb{E}_{q_\phi(z|x)} [\log p_\theta(x|z)]$
-
+```math
+-\mathbb{E}_{q_\phi(z|x)}[\log p_\theta(x|z)]
+```
 is equivalent to minimizing MSE when:
 1. The decoder models a Gaussian distribution
 2. The variance $\sigma^2$ is fixed
