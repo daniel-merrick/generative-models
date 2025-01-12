@@ -15,6 +15,7 @@ The ELBO consists of two terms:
 1. A reconstruction term $E_{q_\phi(z|x)}[\log p_\theta(x|z)]$ that measures how well we can reconstruct the input
 2. A regularization term $D_{KL}(q_\phi(z|x) || p(z))$ that ensures our learned latent distribution stays close to the prior (a zero mean, unit gaussian)
 
+## Reconstruction Term
 The reconstruction term in the ELBO can be directly related to MSE when we make certain assumptions about the decoder's output distribution. 
 
 For a Gaussian decoder with fixed variance $\sigma^2$, the negative log-likelihood (NLL) is proportional to MSE:
