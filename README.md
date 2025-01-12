@@ -1,6 +1,6 @@
 # Background
 
-Publishing the math / code I'm learning for generative model. Implementing very simple networks that demonstrate the core math behind the techniques. 
+Publishing the math / code necessary to build generative models. Working up to Diffusion Models. Implementing very simple networks that demonstrate the core math behind the techniques. 
 
 - [VAE Notebooks](./notebooks/variational_autoencoders/)
 - [GAN Notebooks](./notebooks/generative_adversarial_networks/)
