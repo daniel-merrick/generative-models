@@ -1,11 +1,13 @@
 
 ## Overview
+This page is mostly based on [this excellent resource](https://arxiv.org/pdf/2208.11970).
+
 One approach of generative modeling, termed "likelihood-based", is to learn a model to
 maximize the likelihood p(x) of all observed x.
 
 We can consider a VAE as something that models the joint distribution of x and z. 
 
-To maximize p(x) is intractible, so we maximize the Evidence Lower Bound (ELBO) of $p_\theta(x)$.
+To maximize p(x) is impossible because it's intractible (see resource), so we maximize the Evidence Lower BOund (ELBO) of $p_\theta(x)$.
 
 ## ELBO Derivation
 Starting with the log likelihood and using the fact that $\int q_\phi(z|x)dz = 1$:
